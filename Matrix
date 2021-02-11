@@ -1,0 +1,64 @@
+/******************************************************************************
+
+Welcome to Matrix Program.
+Row wise Addition, Column wise Addition, Matrix Addition.
+
+*******************************************************************************/
+// Cash counter1: 100, 200, 300   =600
+// Cash Counter2: 300, 400, 500   =1200
+// Answer  items:=400, =600,=800
+//               [0][0]  [0,1]  [0,2]
+//               [1][0]  [1,1]  [1,2]
+#include<stdio.h>
+int main(){
+   /* 2D array declaration*/
+   int disp[2][3];
+   /*Counter variables for the loop*/
+   int i, j;
+   int sumOfRows=0, sumOfColumns=0, sumOfMatrix=0;
+   for(i=0; i<2; i++) {
+      for(j=0;j<3;j++) {
+         printf("Enter value for disp[%d][%d]:", i, j);
+         scanf("%d", &disp[i][j]);
+      }
+   }
+   //Displaying array elements
+   printf("Two Dimensional array elements:\n");
+   for(i=0; i<2; i++) {
+      for(j=0;j<3;j++) {
+         printf("%d ", disp[i][j]);
+         if(j==2){
+            printf("\n");
+         }
+      }
+   }
+   printf("Sum of individual cash counters as sum of row:\n");
+   for(i=0; i<2; i++) 
+   {
+      sumOfRows=0;
+      for(j=0;j<3;j++) 
+      {
+         sumOfRows=sumOfRows+disp[i][j];
+      }
+      printf("%d\n", sumOfRows);
+     // sumOfRows=0;
+   }  
+printf("Sum of individual item sales as sum of columns:\n  ");
+   for(i=0; i<3; i++) 
+   {  sumOfColumns=0;   
+      for(j=0;j<2;j++) 
+      {
+         //sum1=sum1+disp[i][j];
+         sumOfColumns=sumOfColumns+disp[j][i];   //[0][0], [1][0]
+                                 //[0][1], [1][1]
+                                 //[0][2], [1][2]
+      
+      }
+      printf("%d ", sumOfColumns);
+      //sumOfColumns=0;   
+   }  
+    sumOfMatrix=sumOfRows+sumOfColumns;
+      
+      printf("\nSum of Matrix = %d ", sumOfMatrix);
+   return 0;
+}
